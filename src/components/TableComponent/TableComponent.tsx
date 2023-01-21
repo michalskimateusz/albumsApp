@@ -4,8 +4,11 @@ import {
   toggleBestStatus,
   IAlbum,
   removeAlbum,
+  sort,
 } from "../../features/albumsSlice/albumsSlice";
 import { useAppDispatch } from "../../app/hooks";
+import SortComponent from "../SortComponent/SortComponent";
+import StarComponent from "../StarComponent/StarComponent";
 
 interface ITableComponent {
   data: IAlbum[];
@@ -18,11 +21,51 @@ const TableComponent: FC<ITableComponent> = ({ data }) => {
     <table className="table table-hover fs-4">
       <thead>
         <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Data dodania</th>
-          <th scope="col">Zespół</th>
-          <th scope="col">Album</th>
-          <th scope="col" />
+          <th scope="col">
+            <div className="d-flex align-items-center">
+              ID
+              <SortComponent
+                onClickUp={() => dispatch(sort({ dir: "asc", key: "id" }))}
+                onClickDown={() => dispatch(sort({ dir: "desc", key: "id" }))}
+              />
+            </div>
+          </th>
+          <th scope="col">
+            <div className="d-flex  align-items-center">
+              Data dodania
+              <SortComponent
+                onClickUp={() => dispatch(sort({ dir: "asc", key: "date" }))}
+                onClickDown={() => dispatch(sort({ dir: "desc", key: "date" }))}
+              />
+            </div>
+          </th>
+          <th scope="col">
+            <div className="d-flex  align-items-center">
+              Zespół
+              <SortComponent
+                onClickUp={() =>
+                  dispatch(sort({ dir: "asc", key: "bandName" }))
+                }
+                onClickDown={() =>
+                  dispatch(sort({ dir: "desc", key: "bandName" }))
+                }
+              />
+            </div>
+          </th>
+          <th scope="col">
+            <div className="d-flex  align-items-center">
+              Album
+              <SortComponent
+                onClickUp={() =>
+                  dispatch(sort({ dir: "asc", key: "albumName" }))
+                }
+                onClickDown={() =>
+                  dispatch(sort({ dir: "desc", key: "albumName" }))
+                }
+              />
+            </div>
+          </th>
+          <th scope="col">Best of the best</th>
           <th scope="col" />
         </tr>
       </thead>
@@ -33,22 +76,20 @@ const TableComponent: FC<ITableComponent> = ({ data }) => {
             <td>{album.date}</td>
             <td>{album.bandName}</td>
             <td>{album.albumName}</td>
-            <td>{album.isBest ? "fav" : "meh"}</td>
-            <td className="d-flex flex-row-reverse">
-              <div className="btn-group">
-                <ButtonComponent
-                  title="set as best of the best"
-                  className="btn btn-success fs-4"
-                  type="button"
-                  onClick={() => dispatch(toggleBestStatus(album.id))}
-                />
-                <ButtonComponent
-                  title="remove"
-                  className="btn btn-danger"
-                  type="button"
-                  onClick={() => dispatch(removeAlbum(album.id))}
-                />
-              </div>
+            <td>
+              <StarComponent
+                onClick={() => dispatch(toggleBestStatus(album.id))}
+                isBest={album.isBest}
+              />
+            </td>
+            <td className="d-flex justify-content-end align-items-center">
+              <ButtonComponent
+                action="remove"
+                title="REMOVE"
+                className="btn btn-danger"
+                type="button"
+                onClick={() => dispatch(removeAlbum(album.id))}
+              />
             </td>
           </tr>
         ))}

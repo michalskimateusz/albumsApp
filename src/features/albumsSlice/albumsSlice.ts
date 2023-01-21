@@ -16,10 +16,12 @@ export interface IAlbum {
 
 export interface IAlbums {
   albums: IAlbum[];
+  layout: "list" | "grid";
 }
 
 const initialState: IAlbums = {
   albums: [],
+  layout: "list",
 };
 
 export const albumsSlice = createSlice({
@@ -85,10 +87,18 @@ export const albumsSlice = createSlice({
           return;
       }
     },
+    toggleView(state, { payload }) {
+      if (payload === "list") {
+        state.layout = "list";
+      }
+      if (payload === "grid") {
+        state.layout = "grid";
+      }
+    },
   },
 });
 
-export const { addAlbum, removeAlbum, toggleBestStatus, sort } =
+export const { addAlbum, removeAlbum, toggleBestStatus, sort, toggleView } =
   albumsSlice.actions;
 
 export const selectAlbum = (state: RootState) => state.albums;

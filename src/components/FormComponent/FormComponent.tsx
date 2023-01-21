@@ -44,18 +44,20 @@ const FormComponent: FC<IFormComponent> = ({ className }) => {
         className="form-control form-control-lg"
       />
       <InputComponent
-        inputRef={albumNameInputRef}
-        type="text"
-        className="form-control form-control-lg"
-        placeholder="album name"
-      />
-      <InputComponent
         inputRef={bandNameInputRef}
         type="text"
         className="form-control form-control-lg"
         placeholder="band name"
       />
+      <InputComponent
+        inputRef={albumNameInputRef}
+        type="text"
+        className="form-control form-control-lg"
+        placeholder="album name"
+      />
+
       <ButtonComponent
+        action="add"
         title="Add to list"
         className="btn btn-primary form-control form-control-lg fs-3"
         type="submit"
