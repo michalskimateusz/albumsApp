@@ -1,12 +1,24 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import albumsReducer from '../features/albumsSlice/albumsSlice';
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import albumsReducer from "../features/albumsSlice/albumsSlice";
+import storage from "redux-persist/lib/storage";
+import { persistReducer, persistStore } from "redux-persist";
+import thunk from "redux-thunk";
+
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, albumsReducer);
 
 export const store = configureStore({
   reducer: {
-    albums: albumsReducer,
+    albums: persistedReducer,
   },
+  middleware: [thunk],
 });
 
+export const persistor = persistStore(store);
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
 export type AppThunk<ReturnType = void> = ThunkAction<
