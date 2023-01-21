@@ -1,7 +1,7 @@
 import albumArt from "../../assets/albumArt.png";
 import React, { FC } from "react";
-import { IAlbum } from "../../assets/data";
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
+import { IAlbum } from "../../features/albumsSlice/albumsSlice";
 
 const AlbumCardComponent: FC<IAlbum> = ({ bandName, albumName, date, id }) => {
   return (

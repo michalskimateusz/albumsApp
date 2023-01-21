@@ -1,6 +1,6 @@
 import AlbumCardComponent from "../AlbumCardComponent/AlbumCardComponent";
-import { IAlbum } from "../../assets/data";
 import { FC } from "react";
+import { IAlbum } from "../../features/albumsSlice/albumsSlice";
 
 interface IGridComponent {
   data: IAlbum[];
@@ -8,14 +8,7 @@ interface IGridComponent {
 
 const GridComponent: FC<IGridComponent> = ({ data }) => {
   return (
-    <div
-      className="d-flex gap-4 justify-content-center flex-wrap"
-      // style={{
-      //   display: "grid",
-      //   gridTemplateColumns: "repeat(5, 1fr)",
-      //   gap: "1rem",
-      // }}
-    >
+    <div className="d-flex gap-4 justify-content-center flex-wrap">
       {data.map((album) => (
         <AlbumCardComponent
           key={album.id}

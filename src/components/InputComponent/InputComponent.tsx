@@ -1,17 +1,27 @@
-import { FC } from "react";
+import { FC, RefObject } from "react";
 
 interface IInputComponent {
   type: "text" | "date";
   className: string;
   placeholder?: string;
+  inputRef: RefObject<HTMLInputElement>;
 }
 
 const InputComponent: FC<IInputComponent> = ({
   type,
   className,
   placeholder,
+  inputRef,
 }) => {
-  return <input type={type} className={className} placeholder={placeholder} />;
+  return (
+    <input
+      required
+      ref={inputRef}
+      type={type}
+      className={className}
+      placeholder={placeholder}
+    />
+  );
 };
 
 export default InputComponent;
