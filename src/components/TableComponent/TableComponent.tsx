@@ -5,8 +5,8 @@ import {
   IAlbum,
   removeAlbum,
   sort,
-} from "../../features/albumsSlice/albumsSlice";
-import { useAppDispatch } from "../../app/hooks";
+} from "../../store/albumsSlice/albumsSlice";
+import { useAppDispatch } from "../../store/hooks/hooks";
 import SortComponent from "../SortComponent/SortComponent";
 import StarComponent from "../StarComponent/StarComponent";
 

@@ -1,6 +1,6 @@
 import AlbumCardComponent from "../AlbumCardComponent/AlbumCardComponent";
 import { FC } from "react";
-import { IAlbum } from "../../features/albumsSlice/albumsSlice";
+import { IAlbum } from "../../store/albumsSlice/albumsSlice";
 
 interface IGridComponent {
   data: IAlbum[];

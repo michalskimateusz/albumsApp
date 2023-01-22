@@ -4,8 +4,8 @@ import FormComponent from "./components/FormComponent/FormComponent";
 import TableComponent from "./components/TableComponent/TableComponent";
 import GridComponent from "./components/GridComponent/GridComponent";
 import HeaderComponent from "./components/HeaderComponent/HeaderComponent";
-import { useAppDispatch, useAppSelector } from "./app/hooks";
-import { selectAlbum, toggleView } from "./features/albumsSlice/albumsSlice";
+import { useAppDispatch, useAppSelector } from "./store/hooks/hooks";
+import { selectAlbum, toggleView } from "./store/albumsSlice/albumsSlice";
 import { FaList } from "react-icons/fa";
 import { BsFillGrid3X3GapFill } from "react-icons/bs";
 

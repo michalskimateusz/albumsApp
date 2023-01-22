@@ -5,9 +5,9 @@ import {
   IAlbum,
   removeAlbum,
   toggleBestStatus,
-} from "../../features/albumsSlice/albumsSlice";
+} from "../../store/albumsSlice/albumsSlice";
 import StarComponent from "../StarComponent/StarComponent";
-import { useAppDispatch } from "../../app/hooks";
+import { useAppDispatch } from "../../store/hooks/hooks";
 
 const AlbumCardComponent: FC<IAlbum> = ({
   bandName,

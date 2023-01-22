@@ -1,8 +1,8 @@
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
 import InputComponent from "../InputComponent/InputComponent";
 import { FC, FormEvent, useRef } from "react";
-import { useAppDispatch } from "../../app/hooks";
-import { addAlbum, IAlbum } from "../../features/albumsSlice/albumsSlice";
+import { useAppDispatch } from "../../store/hooks/hooks";
+import { addAlbum, IAlbum } from "../../store/albumsSlice/albumsSlice";
 
 interface IFormComponent {
   className: string;
