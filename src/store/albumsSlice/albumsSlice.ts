@@ -43,44 +43,76 @@ export const albumsSlice = createSlice({
     sort(state, { payload }: PayloadAction<ISortOptions>) {
       const { dir, key } = payload;
       switch (true) {
-        case dir === "asc" && key === "id":
-          state.albums = state.albums.sort((a, b) =>
-            b.id === a.id ? 0 : b.id > a.id ? -1 : 1
-          );
-          break;
         case dir === "desc" && key === "id":
           state.albums = state.albums.sort((a, b) =>
-            b.id === a.id ? 0 : b.id < a.id ? -1 : 1
+            b.id.toLowerCase() === a.id.toLowerCase()
+              ? 0
+              : b.id.toLowerCase() > a.id.toLowerCase()
+              ? -1
+              : 1
           );
           break;
-        case dir === "asc" && key === "date":
+        case dir === "asc" && key === "id":
           state.albums = state.albums.sort((a, b) =>
-            b.date === a.date ? 0 : b.date > a.date ? -1 : 1
+            b.id.toLowerCase() === a.id.toLowerCase()
+              ? 0
+              : b.id.toLowerCase() < a.id.toLowerCase()
+              ? -1
+              : 1
           );
           break;
         case dir === "desc" && key === "date":
           state.albums = state.albums.sort((a, b) =>
-            b.date === a.date ? 0 : b.date < a.date ? -1 : 1
+            b.date.toLowerCase() === a.date.toLowerCase()
+              ? 0
+              : b.date.toLowerCase() > a.date.toLowerCase()
+              ? -1
+              : 1
           );
           break;
-        case dir === "asc" && key === "bandName":
+        case dir === "asc" && key === "date":
           state.albums = state.albums.sort((a, b) =>
-            b.bandName === a.bandName ? 0 : b.bandName > a.bandName ? -1 : 1
+            b.date.toLowerCase() === a.date.toLowerCase()
+              ? 0
+              : b.date.toLowerCase() < a.date.toLowerCase()
+              ? -1
+              : 1
           );
           break;
         case dir === "desc" && key === "bandName":
           state.albums = state.albums.sort((a, b) =>
-            b.bandName === a.bandName ? 0 : b.bandName < a.bandName ? -1 : 1
+            b.bandName.toLowerCase() === a.bandName.toLowerCase()
+              ? 0
+              : b.bandName.toLowerCase() > a.bandName.toLowerCase()
+              ? -1
+              : 1
           );
           break;
-        case dir === "asc" && key === "albumName":
+        case dir === "asc" && key === "bandName":
           state.albums = state.albums.sort((a, b) =>
-            b.albumName === a.albumName ? 0 : b.albumName > a.albumName ? -1 : 1
+            b.bandName.toLowerCase() === a.bandName.toLowerCase()
+              ? 0
+              : b.bandName.toLowerCase() < a.bandName.toLowerCase()
+              ? -1
+              : 1
           );
           break;
         case dir === "desc" && key === "albumName":
           state.albums = state.albums.sort((a, b) =>
-            b.albumName === a.albumName ? 0 : b.albumName < a.albumName ? -1 : 1
+            b.albumName.toLowerCase() === a.albumName.toLowerCase()
+              ? 0
+              : b.albumName.toLowerCase() > a.albumName.toLowerCase()
+              ? -1
+              : 1
+          );
+          break;
+        case dir === "asc" && key === "albumName":
+          state.albums = state.albums.sort((a, b) =>
+            b.albumName.toLowerCase() === a.albumName.toLowerCase()
+              ? 0
+              : b.albumName.toLowerCase() < a.albumName.toLowerCase()
+              ? -1
+              : 1
           );
           break;
         default:
