@@ -68,3 +68,33 @@ ol,
 ul {
   list-style: none;
 }
+
+
+.card {
+  width: calc((100% - 15px) / 2);
+  max-width: 14rem;
+}
+
+.btn-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  font-size: 2rem;
+}
+
+.layout-btn {
+  font-size: 1.5rem;
+}
+
+@media screen and (min-width: 576px){
+  table {
+    font-size: 1.4rem;
+  }
+
+  .layout-btn {
+    font-size: 2rem;
+  }
+
+  .card {
+    max-width: 16rem;
+  }
+}

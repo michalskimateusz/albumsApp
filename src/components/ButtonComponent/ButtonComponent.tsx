@@ -19,12 +19,14 @@ const ButtonComponent: FC<IButtonComponent> = ({
 }) => {
   return (
     <button className={className} type={type} onClick={onClick}>
-      <div className="d-flex justify-content-evenly align-items-center fs-4">
-        <span className="fs-2">
+      <div className="d-flex justify-content-center align-items-center">
+        <span className="d-flex justify-content-center btn-icon">
           {action === "remove" && <RxCross2 />}
           {action === "add" && <RiAddLine />}
         </span>
-        <span>{title}</span>
+        <span className={`${action === "add" ? "" : "d-none d-md-flex"}`}>
+          {title}
+        </span>
       </div>
     </button>
   );

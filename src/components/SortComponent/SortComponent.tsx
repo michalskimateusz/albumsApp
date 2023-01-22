@@ -8,7 +8,7 @@ interface ISortComponent {
 
 const SortComponent: FC<ISortComponent> = ({ onClickDown, onClickUp }) => {
   return (
-    <div className="d-flex gap-2 mx-2">
+    <div className="d-flex flex-column flex-md-row gap-2">
       <span onClick={onClickUp} role="button">
         <FaChevronUp />
       </span>

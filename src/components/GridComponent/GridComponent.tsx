@@ -8,7 +8,7 @@ interface IGridComponent {
 
 const GridComponent: FC<IGridComponent> = ({ data }) => {
   return (
-    <div className="d-flex gap-4 justify-content-start flex-wrap">
+    <div className="d-flex gap-3 justify-content-center flex-wrap">
       {data.map((album) => (
         <AlbumCardComponent
           key={album.id}

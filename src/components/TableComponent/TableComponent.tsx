@@ -18,11 +18,11 @@ const TableComponent: FC<ITableComponent> = ({ data }) => {
   const dispatch = useAppDispatch();
 
   return (
-    <table className="table table-hover fs-4">
+    <table className="table table-hover">
       <thead>
-        <tr>
+        <tr className="align-middle ">
           <th scope="col">
-            <div className="d-flex align-items-center">
+            <div className="d-flex align-items-center gap-3">
               ID
               <SortComponent
                 onClickUp={() => dispatch(sort({ dir: "asc", key: "id" }))}
@@ -31,8 +31,8 @@ const TableComponent: FC<ITableComponent> = ({ data }) => {
             </div>
           </th>
           <th scope="col">
-            <div className="d-flex  align-items-center">
-              Data dodania
+            <div className="d-flex  align-items-center gap-3">
+              Data <span className="d-none d-md-inline">dodania</span>
               <SortComponent
                 onClickUp={() => dispatch(sort({ dir: "asc", key: "date" }))}
                 onClickDown={() => dispatch(sort({ dir: "desc", key: "date" }))}
@@ -40,7 +40,7 @@ const TableComponent: FC<ITableComponent> = ({ data }) => {
             </div>
           </th>
           <th scope="col">
-            <div className="d-flex  align-items-center">
+            <div className="d-flex align-items-center gap-3 ">
               Zespół
               <SortComponent
                 onClickUp={() =>
@@ -53,7 +53,7 @@ const TableComponent: FC<ITableComponent> = ({ data }) => {
             </div>
           </th>
           <th scope="col">
-            <div className="d-flex  align-items-center">
+            <div className="d-flex align-items-center gap-3">
               Album
               <SortComponent
                 onClickUp={() =>
@@ -65,13 +65,15 @@ const TableComponent: FC<ITableComponent> = ({ data }) => {
               />
             </div>
           </th>
-          <th scope="col">Best of the best</th>
+          <th scope="col" className="text-center">
+            Best <span className="d-none d-md-inline">of the best</span>
+          </th>
           <th scope="col" />
         </tr>
       </thead>
       <tbody>
         {data.map((album) => (
-          <tr key={album.id}>
+          <tr key={album.id} className="align-middle">
             <td>{album.id}</td>
             <td>{album.date}</td>
             <td>{album.bandName}</td>
@@ -82,10 +84,10 @@ const TableComponent: FC<ITableComponent> = ({ data }) => {
                 isBest={album.isBest}
               />
             </td>
-            <td className="d-flex justify-content-end align-items-center">
+            <td className="text-end">
               <ButtonComponent
                 action="remove"
-                title="REMOVE"
+                title="USUŃ"
                 className="btn btn-danger"
                 type="button"
                 onClick={() => dispatch(removeAlbum(album.id))}

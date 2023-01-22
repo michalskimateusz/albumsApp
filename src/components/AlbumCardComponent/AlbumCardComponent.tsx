@@ -18,13 +18,17 @@ const AlbumCardComponent: FC<IAlbum> = ({
 }) => {
   const dispatch = useAppDispatch();
   return (
-    <div className="card" style={{ width: "20rem" }} id={id}>
-      <img src={albumArt} alt="albumArt" className="card-img-top" />
+    <div className="card" id={id}>
+      <img
+        src={albumArt}
+        alt="albumArt"
+        className="d-none d-md-inline card-img-top"
+      />
       <div className="card-body d-flex flex-column">
         <div className="d-flex justify-content-between">
-          <div>
-            <h5 className="card-title">{bandName}</h5>
-            <p className="card-subtitle">{albumName}</p>
+          <div className="d-block text-truncate">
+            <h5 className="card-title text-truncate">{bandName}</h5>
+            <p className=" card-subtitle text-truncate">{albumName}</p>
             <p className="card-text">{date}</p>
           </div>
           <div>
@@ -37,7 +41,7 @@ const AlbumCardComponent: FC<IAlbum> = ({
 
         <ButtonComponent
           action="remove"
-          title="REMOVE"
+          title="USUŃ"
           className="btn btn-danger"
           type="button"
           onClick={() => dispatch(removeAlbum(id))}

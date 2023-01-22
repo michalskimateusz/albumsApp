@@ -37,31 +37,40 @@ const FormComponent: FC<IFormComponent> = ({ className }) => {
 
   return (
     <form className={className} onSubmit={handleSubmit} ref={formRef}>
-      <span className="input-group-text fs-3">Data dodania</span>
-      <InputComponent
-        inputRef={dateInputRef}
-        type="date"
-        className="form-control form-control-lg"
-      />
-      <InputComponent
-        inputRef={bandNameInputRef}
-        type="text"
-        className="form-control form-control-lg"
-        placeholder="band name"
-      />
-      <InputComponent
-        inputRef={albumNameInputRef}
-        type="text"
-        className="form-control form-control-lg"
-        placeholder="album name"
-      />
-
-      <ButtonComponent
-        action="add"
-        title="Add to list"
-        className="btn btn-primary form-control form-control-lg fs-3"
-        type="submit"
-      />
+      <div className="input-group">
+        <span className="input-group-text col-4 col-md-2">Data dodania</span>
+        <InputComponent
+          inputRef={dateInputRef}
+          type="date"
+          className="form-control form-control-lg"
+        />
+      </div>
+      <div className="input-group">
+        <span className="input-group-text col-4 col-md-2">Zespół</span>
+        <InputComponent
+          inputRef={bandNameInputRef}
+          type="text"
+          className="form-control form-control-lg"
+          placeholder="band name"
+        />
+      </div>
+      <div className="input-group">
+        <span className="input-group-text col-4 col-md-2">Album</span>
+        <InputComponent
+          inputRef={albumNameInputRef}
+          type="text"
+          className="form-control form-control-lg"
+          placeholder="album name"
+        />
+      </div>
+      <div className="input-group">
+        <ButtonComponent
+          action="add"
+          title="DODAJ DO LISTY"
+          className="btn btn-primary form-control form-control-lg"
+          type="submit"
+        />
+      </div>
     </form>
   );
 };
