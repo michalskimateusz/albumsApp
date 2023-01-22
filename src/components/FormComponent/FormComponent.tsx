@@ -38,7 +38,7 @@ const FormComponent: FC<IFormComponent> = ({ className }) => {
   return (
     <form className={className} onSubmit={handleSubmit} ref={formRef}>
       <div className="input-group">
-        <span className="input-group-text col-4 col-md-2">Data dodania</span>
+        <span className="input-group-text col-4 col-md-2 label">Date</span>
         <InputComponent
           inputRef={dateInputRef}
           type="date"
@@ -46,27 +46,29 @@ const FormComponent: FC<IFormComponent> = ({ className }) => {
         />
       </div>
       <div className="input-group">
-        <span className="input-group-text col-4 col-md-2">Zespół</span>
+        <span className="input-group-text col-4 col-md-2 label">Band Name</span>
         <InputComponent
           inputRef={bandNameInputRef}
           type="text"
           className="form-control form-control-lg"
-          placeholder="band name"
+          placeholder="..."
         />
       </div>
       <div className="input-group">
-        <span className="input-group-text col-4 col-md-2">Album</span>
+        <span className="input-group-text col-4 col-md-2 label">
+          Album Name
+        </span>
         <InputComponent
           inputRef={albumNameInputRef}
           type="text"
           className="form-control form-control-lg"
-          placeholder="album name"
+          placeholder="..."
         />
       </div>
       <div className="input-group">
         <ButtonComponent
           action="add"
-          title="DODAJ DO LISTY"
+          title="ADD TO LIST"
           className="btn btn-primary form-control form-control-lg"
           type="submit"
         />

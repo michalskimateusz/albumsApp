@@ -19,7 +19,7 @@ const ButtonComponent: FC<IButtonComponent> = ({
 }) => {
   return (
     <button className={className} type={type} onClick={onClick}>
-      <div className="d-flex justify-content-center align-items-center">
+      <div className="d-flex justify-content-center align-items-center fw-bolder">
         <span className="d-flex justify-content-center btn-icon">
           {action === "remove" && <RxCross2 />}
           {action === "add" && <RiAddLine />}

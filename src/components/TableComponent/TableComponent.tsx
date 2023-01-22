@@ -22,7 +22,7 @@ const TableComponent: FC<ITableComponent> = ({ data }) => {
       <thead>
         <tr className="align-middle ">
           <th scope="col">
-            <div className="d-flex align-items-center gap-3">
+            <div className="d-flex align-items-center gap-1 gap-md-3">
               ID
               <SortComponent
                 onClickUp={() => dispatch(sort({ dir: "asc", key: "id" }))}
@@ -31,8 +31,8 @@ const TableComponent: FC<ITableComponent> = ({ data }) => {
             </div>
           </th>
           <th scope="col">
-            <div className="d-flex  align-items-center gap-3">
-              Data <span className="d-none d-md-inline">dodania</span>
+            <div className="d-flex  align-items-center gap-1 gap-md-3">
+              Date
               <SortComponent
                 onClickUp={() => dispatch(sort({ dir: "asc", key: "date" }))}
                 onClickDown={() => dispatch(sort({ dir: "desc", key: "date" }))}
@@ -40,8 +40,8 @@ const TableComponent: FC<ITableComponent> = ({ data }) => {
             </div>
           </th>
           <th scope="col">
-            <div className="d-flex align-items-center gap-3 ">
-              Zespół
+            <div className="d-flex align-items-center gap-1 gap-md-3 ">
+              Band
               <SortComponent
                 onClickUp={() =>
                   dispatch(sort({ dir: "asc", key: "bandName" }))
@@ -53,7 +53,7 @@ const TableComponent: FC<ITableComponent> = ({ data }) => {
             </div>
           </th>
           <th scope="col">
-            <div className="d-flex align-items-center gap-3">
+            <div className="d-flex align-items-center gap-1 gap-md-3">
               Album
               <SortComponent
                 onClickUp={() =>
@@ -87,7 +87,7 @@ const TableComponent: FC<ITableComponent> = ({ data }) => {
             <td className="text-end">
               <ButtonComponent
                 action="remove"
-                title="USUŃ"
+                title="REMOVE"
                 className="btn btn-danger"
                 type="button"
                 onClick={() => dispatch(removeAlbum(album.id))}

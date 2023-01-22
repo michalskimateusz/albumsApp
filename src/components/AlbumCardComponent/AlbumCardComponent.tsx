@@ -41,7 +41,7 @@ const AlbumCardComponent: FC<IAlbum> = ({
 
         <ButtonComponent
           action="remove"
-          title="USUŃ"
+          title="REMOVE"
           className="btn btn-danger"
           type="button"
           onClick={() => dispatch(removeAlbum(id))}
