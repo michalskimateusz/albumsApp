@@ -24,9 +24,9 @@ const FormComponent: FC<IFormComponent> = ({ className }) => {
     ) {
       const addAlbumData: IAlbum = {
         id: (Math.random() * Date.now()).toString().substring(-1, 5),
-        date: dateInputRef?.current?.value,
-        bandName: bandNameInputRef?.current?.value,
-        albumName: albumNameInputRef?.current?.value,
+        date: dateInputRef.current.value,
+        bandName: bandNameInputRef.current.value,
+        albumName: albumNameInputRef.current.value,
         isBest: false,
       };
       dispatch(addAlbum(addAlbumData));
